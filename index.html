@@ -57,6 +57,11 @@
     <!-- Learn more at https://github.com/sethcottle/littlelink-extended.
          Remove comments if you've added LittleLink Extended dependencies -->
 
+    <!-- Vercel Web Analytics - Only loads when deployed on Vercel with Web Analytics enabled -->
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
   </head>
 
 <body>
