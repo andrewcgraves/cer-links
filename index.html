@@ -15,7 +15,7 @@
 
     <!-- Page Title - Change this to your name/brand (50-60 characters recommended) -->
     <title>Save Metrolink</title>
-    <link rel="icon" type="image/png" href="images/metrolink.png"> <!-- Update this with your own favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 
     <!-- Meta Description - Write a description (150-160 characters recommended) -->
     <meta name="description" content="Links to help speak out against OCTA funding cuts to Metrolink.">
@@ -27,8 +27,8 @@
     <meta name="author" content="Your Name">
 
     <!-- Browser UI Color - Matches the default light/dark theme backgrounds -->
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#F4F8FC" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#051D2F" media="(prefers-color-scheme: dark)">
 
     <!-- Social Sharing (Open Graph & Twitter) - Uncomment and fill in to control how your page
          looks when shared on social platforms and in chat apps.
@@ -44,13 +44,13 @@
 
     <!-- Font Preloads - Lets the browser fetch fonts in parallel with the stylesheets -->
     <link rel="preload" href="fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/inter-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/brands.css">
+    <link rel="stylesheet" href="css/theme.css">
 
     <!-- LittleLink Extended Stylesheet (Optional) -->
     <!-- <link rel="stylesheet" href="css/brands-extended.css"> -->
@@ -66,48 +66,101 @@
 
 <body>
 
-    <div class="container">
-        <div class="column">
-          <main>
+    <!-- Icon sprite: monochrome icons that pick up the theme's blue via currentColor -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+      <symbol id="i-megaphone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z"/><path d="M15.5 9a3.5 3.5 0 0 1 0 6"/><path d="M18.5 6a7.5 7.5 0 0 1 0 12"/></symbol>
+      <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h6"/></symbol>
+      <symbol id="i-clipboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 12h6"/><path d="M9 16h4"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+      <symbol id="i-article" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h12v16H6a2 2 0 0 1-2-2z"/><path d="M16 8h3a1 1 0 0 1 1 1v9a2 2 0 0 1-2 2h-2"/><path d="M8 8h4"/><path d="M8 12h4"/><path d="M8 16h4"/></symbol>
+      <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></symbol>
+    </svg>
 
-            <!--
-              By default, the Avatar is rounded. Use the following:
-              - avatar--rounded: Automatically rounds the image
-              - avatar--soft: Slightly rounds the image
-              - avatar--none: Removes any rounding
+    <div class="page">
+      <main>
 
-              Be sure to replace the src with your own image path and update the alt text
-            -->
-            <img class="avatar avatar--rounded" src="images/metrolink.png" alt="Metrolink logo" width="128" height="128" fetchpriority="high">
+        <header class="hero">
+          <!-- Chevron band from the Electrolink paper cover -->
+          <svg class="chevrons" viewBox="0 0 500 36" aria-hidden="true" focusable="false">
+            <polygon points="0,0 86,0 100,18 86,36 0,36"/>
+            <polygon points="100,0 186,0 200,18 186,36 100,36 114,18"/>
+            <polygon points="200,0 286,0 300,18 286,36 200,36 214,18"/>
+            <polygon points="300,0 386,0 400,18 386,36 300,36 314,18"/>
+            <polygon points="400,0 500,0 500,36 400,36 414,18"/>
+          </svg>
+          <p class="eyebrow">Californians for Electric Rail</p>
+          <h1>Save Metrolink</h1>
+          <p class="tagline">Links to help speak out against OCTA funding cuts to Metrolink.</p>
+        </header>
 
-            <!-- Replace with your name or brand -->
-            <h1>Save Metrolink</h1>
+        <section class="link-section" aria-labelledby="toolkits-heading">
+          <h2 id="toolkits-heading">Toolkits</h2>
+          <ul class="link-list" role="list">
+            <li>
+              <a class="link-card link-card--primary" href="https://actionnetwork.org/letters/fund-metrolink-to-keep-transit-vibrant-and-affordable?source=direct_link&amp;" target="_blank" rel="noopener">
+                <span class="link-card__icon"><svg aria-hidden="true"><use href="#i-megaphone"/></svg></span>
+                <span class="link-card__body"><span class="link-card__title">Take Action</span><span class="link-card__meta">Send a letter on Action Network</span></span>
+                <svg class="link-card__arrow" aria-hidden="true"><use href="#i-external"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="link-card" href="https://docs.google.com/document/d/1prMYzTahbwzgVNtn0bfmMKDAa4uJzxozuuBfcnQbtrY/edit?usp=sharing" target="_blank" rel="noopener">
+                <span class="link-card__icon"><svg aria-hidden="true"><use href="#i-doc"/></svg></span>
+                <span class="link-card__body"><span class="link-card__title">OCTA Toolkit</span><span class="link-card__meta">Google Doc</span></span>
+                <svg class="link-card__arrow" aria-hidden="true"><use href="#i-external"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="link-card" href="https://docs.google.com/document/d/1EpZpOBDn2IRKd_8a0dv5WPejzr_xglmxDwI152ZHBO8/edit?usp=sharing" target="_blank" rel="noopener">
+                <span class="link-card__icon"><svg aria-hidden="true"><use href="#i-doc"/></svg></span>
+                <span class="link-card__body"><span class="link-card__title">Metro Toolkit</span><span class="link-card__meta">Google Doc</span></span>
+                <svg class="link-card__arrow" aria-hidden="true"><use href="#i-external"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="link-card" href="https://docs.google.com/document/d/1gWLlyYa2d-7vLAkSdUPg4hxgd2EoYTsvh5cTyyw9eRY/edit?usp=sharing" target="_blank" rel="noopener">
+                <span class="link-card__icon"><svg aria-hidden="true"><use href="#i-clipboard"/></svg></span>
+                <span class="link-card__body"><span class="link-card__title">Canvassing Script</span><span class="link-card__meta">Google Doc</span></span>
+                <svg class="link-card__arrow" aria-hidden="true"><use href="#i-external"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="link-card" href="https://docs.google.com/document/d/1jbxpxffPxwdXLkShHNinEZsMDSBTveh3P3izOYuP01Q/edit?usp=sharing" target="_blank" rel="noopener">
+                <span class="link-card__icon"><svg aria-hidden="true"><use href="#i-mail"/></svg></span>
+                <span class="link-card__body"><span class="link-card__title">Email Template</span><span class="link-card__meta">Google Doc</span></span>
+                <svg class="link-card__arrow" aria-hidden="true"><use href="#i-external"/></svg>
+              </a>
+            </li>
+          </ul>
+        </section>
 
-            <!-- Add a short description about yourself or your brand -->
-            <p>Links to help speak out against OCTA funding cuts to Metrolink</p>
+        <section class="link-section" aria-labelledby="articles-heading">
+          <h2 id="articles-heading">Articles &amp; Further Reading</h2>
+          <ul class="link-list" role="list">
+            <li>
+              <a class="link-card" href="https://voiceofoc.org/2026/05/buck-and-rizzo-dont-let-octa-de-rail-our-future-how-metrolink-cuts-will-cost-us-all/?utm_source=facebook&amp;utm_medium=jetpack_social" target="_blank" rel="noopener">
+                <span class="link-card__icon"><svg aria-hidden="true"><use href="#i-article"/></svg></span>
+                <span class="link-card__body"><span class="link-card__title">Don’t Let OCTA De-Rail Our Future: How Metrolink Cuts Will Cost Us All</span><span class="link-card__meta">Voice of OC</span></span>
+                <svg class="link-card__arrow" aria-hidden="true"><use href="#i-external"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="link-card" href="https://calelectricrail.org/metrolink-is-facing-service-cuts-take-action-now/" target="_blank" rel="noopener">
+                <span class="link-card__icon"><svg aria-hidden="true"><use href="#i-article"/></svg></span>
+                <span class="link-card__body"><span class="link-card__title">Metrolink Is Facing Service Cuts: Take Action Now!</span><span class="link-card__meta">Californians for Electric Rail</span></span>
+                <svg class="link-card__arrow" aria-hidden="true"><use href="#i-external"/></svg>
+              </a>
+            </li>
+          </ul>
+        </section>
 
-            <h2>Links to Toolkits</h2>
-            <nav class="button-stack" aria-label="Links to Toolkits">
-              <a class="button button-default" href="https://actionnetwork.org/letters/fund-metrolink-to-keep-transit-vibrant-and-affordable?source=direct_link&amp;" target="_blank" rel="noopener"><img class="icon" aria-hidden="true" src="images/icons/generic-website.svg" alt="Website Icon">Take Action</a>
-              <a class="button button-google-black" href="https://docs.google.com/document/d/1prMYzTahbwzgVNtn0bfmMKDAa4uJzxozuuBfcnQbtrY/edit?usp=sharing" target="_blank" rel="noopener"><img class="icon" aria-hidden="true" src="images/icons/google-docs.svg" alt="Google Docs Logo">OCTA Toolkit</a>
-              <a class="button button-google-black" href="https://docs.google.com/document/d/1EpZpOBDn2IRKd_8a0dv5WPejzr_xglmxDwI152ZHBO8/edit?usp=sharing" target="_blank" rel="noopener"><img class="icon" aria-hidden="true" src="images/icons/google-docs.svg" alt="Google Docs Logo">Metro Toolkit</a>
-              <a class="button button-google-black" href="https://docs.google.com/document/d/1gWLlyYa2d-7vLAkSdUPg4hxgd2EoYTsvh5cTyyw9eRY/edit?usp=sharing" target="_blank" rel="noopener"><img class="icon" aria-hidden="true" src="images/icons/google-docs.svg" alt="Google Docs Logo">Canvassing Script</a>
-              <a class="button button-google-black" href="https://docs.google.com/document/d/1jbxpxffPxwdXLkShHNinEZsMDSBTveh3P3izOYuP01Q/edit?usp=sharing" target="_blank" rel="noopener"><img class="icon" aria-hidden="true" src="images/icons/google-docs.svg" alt="Google Docs Logo">Email Template</a>
-            </nav>
-            <h2>Articles &amp; Further Information</h2>
-            <nav class="button-stack" aria-label="Articles and Further Information">
-              <a class="button button-default" href="https://voiceofoc.org/2026/05/buck-and-rizzo-dont-let-octa-de-rail-our-future-how-metrolink-cuts-will-cost-us-all/?utm_source=facebook&amp;utm_medium=jetpack_social" target="_blank" rel="noopener"><img class="icon" aria-hidden="true" src="images/icons/generic-blog.svg" alt="Blog Icon">Don’t Let OCTA De-Rail Our Future, How Metrolink Cuts Will Cost Us All</a>
-              <a class="button button-default" href="https://calelectricrail.org/metrolink-is-facing-service-cuts-take-action-now/" target="_blank" rel="noopener"><img class="icon" aria-hidden="true" src="images/icons/generic-blog.svg" alt="Blog Icon">Metrolink is Facing Service Cuts - Take Action Now!</a>
-            </nav>
       </main>
 
       <!-- Feel free to add your own footer information, including updating `privacy.html` to reflect how your LittleLink fork is set up -->
       <footer>
-        <a href="privacy.html">Privacy Policy</a> | Build your own by forking <a href="https://littlelink.io" target="_blank" rel="noopener">LittleLink</a>
+        <a href="privacy.html">Privacy Policy</a> · Built with <a href="https://littlelink.io" target="_blank" rel="noopener">LittleLink</a>
       </footer>
-
     </div>
-  </div>
 
 </body>
 

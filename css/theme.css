@@ -1,0 +1,342 @@
+/*
+* Save Metrolink theme
+* Layered on top of LittleLink's style.css. Palette and type follow the
+* Californians for Electric Rail "Electrolink" paper: Inter Black for
+* headings, Open Sans for body copy, and a navy-to-sky blue ramp.
+*/
+
+/* Fonts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+@font-face {
+	font-display:swap;
+	font-family:'Inter';
+	font-style:normal;
+	font-weight:900;
+	src:url('../fonts/inter-latin-900-normal.woff2') format('woff2');
+}
+@font-face {
+	font-display:swap;
+	font-family:'Inter';
+	font-style:italic;
+	font-weight:900;
+	src:url('../fonts/inter-latin-900-italic.woff2') format('woff2');
+}
+
+/* Tokens
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+:root {
+	--font-display:'Inter', system-ui, sans-serif;
+	--font-body:'Open Sans', system-ui, sans-serif;
+
+	/* Electrolink blue ramp */
+	--navy-900:#051D2F;
+	--navy-700:#1B4162;
+	--blue-600:#2C5F8F;
+	--blue-500:#3F7BB6;
+	--blue-400:#4E92D8;
+	--sky-100:#E6EFF9;
+	--sky-50:#F4F8FC;
+
+	/* Light theme (default) */
+	--bg:var(--sky-50);
+	--text:var(--navy-900);
+	--text-muted:#4A6178;
+	--accent:var(--blue-500);
+	--link:var(--blue-600);
+	--link-hover:var(--navy-700);
+	--card-bg:#FFFFFF;
+	--card-border:#D5E2F0;
+	--card-border-hover:var(--blue-400);
+	--card-shadow:0 1px 2px rgba(5, 29, 47, 0.04), 0 4px 14px rgba(5, 29, 47, 0.05);
+	--card-shadow-hover:0 2px 4px rgba(5, 29, 47, 0.06), 0 10px 24px rgba(44, 95, 143, 0.14);
+	--icon-bg:var(--sky-100);
+	--icon-fg:var(--blue-600);
+	--primary-bg:linear-gradient(135deg, var(--navy-700) 0%, var(--blue-500) 100%);
+	--primary-text:#FFFFFF;
+	--primary-icon-bg:rgba(255, 255, 255, 0.16);
+	--focus:var(--blue-400);
+
+	--chev-1:var(--navy-900);
+	--chev-2:var(--navy-700);
+	--chev-3:var(--blue-600);
+	--chev-4:var(--blue-500);
+	--chev-5:var(--blue-400);
+}
+
+/* Dark palette, shared by forced-dark and auto-dark */
+:root.theme-dark {
+	--bg:var(--navy-900);
+	--text:#E8F0F8;
+	--text-muted:#9DB4CC;
+	--accent:#7DB0E6;
+	--link:#8DBBEA;
+	--link-hover:#B8D5F2;
+	--card-bg:#0B2A44;
+	--card-border:#1B4162;
+	--card-border-hover:var(--blue-400);
+	--card-shadow:none;
+	--card-shadow-hover:0 8px 24px rgba(0, 0, 0, 0.35);
+	--icon-bg:rgba(78, 146, 216, 0.16);
+	--icon-fg:#8DBBEA;
+	--primary-bg:linear-gradient(135deg, var(--blue-600) 0%, var(--blue-400) 100%);
+	--chev-1:var(--navy-700);
+	--chev-2:var(--blue-600);
+	--chev-3:var(--blue-500);
+	--chev-4:var(--blue-400);
+	--chev-5:#7DB0E6;
+}
+@media (prefers-color-scheme:dark) {
+	:root.theme-auto {
+		--bg:var(--navy-900);
+		--text:#E8F0F8;
+		--text-muted:#9DB4CC;
+		--accent:#7DB0E6;
+		--link:#8DBBEA;
+		--link-hover:#B8D5F2;
+		--card-bg:#0B2A44;
+		--card-border:#1B4162;
+		--card-border-hover:var(--blue-400);
+		--card-shadow:none;
+		--card-shadow-hover:0 8px 24px rgba(0, 0, 0, 0.35);
+		--icon-bg:rgba(78, 146, 216, 0.16);
+		--icon-fg:#8DBBEA;
+		--primary-bg:linear-gradient(135deg, var(--blue-600) 0%, var(--blue-400) 100%);
+		--chev-1:var(--navy-700);
+		--chev-2:var(--blue-600);
+		--chev-3:var(--blue-500);
+		--chev-4:var(--blue-400);
+		--chev-5:#7DB0E6;
+	}
+}
+
+/* Base (overrides style.css, including its dark-mode body rules)
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+:root body,
+:root.theme-dark body,
+:root.theme-auto body {
+	background-color:var(--bg);
+	color:var(--text);
+	font-family:var(--font-body);
+}
+:root a:not(.link-card),
+:root.theme-dark a:not(.link-card),
+:root.theme-auto a:not(.link-card) {
+	color:var(--link);
+	text-decoration-thickness:1px;
+	text-underline-offset:0.15em;
+}
+:root a:not(.link-card):hover,
+:root.theme-dark a:not(.link-card):hover,
+:root.theme-auto a:not(.link-card):hover {
+	color:var(--link-hover);
+}
+:root :focus-visible,
+:root.theme-dark :focus-visible,
+:root.theme-auto :focus-visible {
+	outline:2px solid var(--focus);
+	outline-offset:3px;
+}
+
+h1, h2, h3 {
+	font-family:var(--font-display);
+	font-weight:900;
+	letter-spacing:-0.01em;
+	hyphens:manual;
+}
+h1 {
+	font-size:2.25rem;
+	line-height:1.1;
+}
+h2 {
+	color:var(--accent);
+}
+
+/* Link page layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+.page {
+	width:100%;
+	max-width:30rem;          /* 480px */
+	margin:0 auto;
+	padding:var(--spacing-xl) var(--spacing-s) 0;
+	box-sizing:border-box;
+	text-align:left;
+}
+
+/* Header */
+.hero {
+	margin-bottom:var(--spacing-l);
+}
+.chevrons {
+	display:block;
+	width:100%;
+	height:auto;
+	margin-bottom:var(--spacing-m);
+}
+.chevrons polygon:nth-child(1) { fill:var(--chev-1); }
+.chevrons polygon:nth-child(2) { fill:var(--chev-2); }
+.chevrons polygon:nth-child(3) { fill:var(--chev-3); }
+.chevrons polygon:nth-child(4) { fill:var(--chev-4); }
+.chevrons polygon:nth-child(5) { fill:var(--chev-5); }
+
+.eyebrow {
+	margin:0 0 var(--spacing-xs);
+	font-family:var(--font-display);
+	font-style:italic;
+	font-weight:900;
+	font-size:0.875rem;
+	letter-spacing:0.01em;
+	color:var(--accent);
+}
+.hero h1 {
+	margin:0 0 var(--spacing-xs);
+	color:var(--text);
+}
+.page .tagline {
+	margin:0;
+	font-size:1rem;
+	line-height:1.55;
+	color:var(--text-muted);
+}
+
+/* Sections */
+.link-section {
+	margin:0 0 var(--spacing-l);
+}
+.link-section h2 {
+	margin:0 0 0.75rem;
+	font-size:1.0625rem;      /* 17px */
+	line-height:1.3;
+}
+.link-list {
+	display:flex;
+	flex-direction:column;
+	gap:0.625rem;
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+.link-list li {
+	margin:0;
+}
+
+/* Link cards */
+.link-card {
+	display:flex;
+	align-items:center;
+	gap:0.875rem;
+	padding:0.75rem 0.875rem 0.75rem 0.75rem;
+	background:var(--card-bg);
+	color:var(--text);
+	border:1px solid var(--card-border);
+	border-radius:0.875rem;
+	box-shadow:var(--card-shadow);
+	text-decoration:none;
+	transition:border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+	--card-text:var(--text);
+}
+/* Beat style.css's `:root.theme-* a:not(.button)` link colors */
+:root a.link-card,
+:root a.link-card:hover,
+:root.theme-dark a.link-card,
+:root.theme-dark a.link-card:hover,
+:root.theme-auto a.link-card,
+:root.theme-auto a.link-card:hover {
+	color:var(--card-text);
+}
+.link-card:hover {
+	border-color:var(--card-border-hover);
+	box-shadow:var(--card-shadow-hover);
+	transform:translateY(-1px);
+}
+.link-card__icon {
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	flex-shrink:0;
+	width:2.5rem;
+	height:2.5rem;
+	border-radius:0.625rem;
+	background:var(--icon-bg);
+	color:var(--icon-fg);
+}
+.link-card__icon svg {
+	width:1.25rem;
+	height:1.25rem;
+}
+.link-card__body {
+	display:flex;
+	flex-direction:column;
+	flex:1;
+	min-width:0;
+}
+.link-card__title {
+	font-size:1rem;
+	font-weight:600;
+	line-height:1.35;
+}
+.link-card__meta {
+	font-size:0.8125rem;
+	line-height:1.4;
+	color:var(--text-muted);
+}
+.link-card__arrow {
+	flex-shrink:0;
+	width:1rem;
+	height:1rem;
+	color:var(--text-muted);
+	opacity:0.7;
+	transition:transform 0.15s ease, opacity 0.15s ease, color 0.15s ease;
+}
+.link-card:hover .link-card__arrow {
+	opacity:1;
+	color:var(--icon-fg);
+	transform:translate(2px, -2px);
+}
+
+/* Primary call to action */
+.link-card--primary {
+	background:var(--primary-bg);
+	border-color:transparent;
+	--card-text:var(--primary-text);
+}
+.link-card--primary:hover {
+	border-color:transparent;
+}
+.link-card--primary .link-card__icon {
+	background:var(--primary-icon-bg);
+	color:var(--primary-text);
+}
+.link-card--primary .link-card__meta,
+.link-card--primary .link-card__arrow,
+.link-card--primary:hover .link-card__arrow {
+	color:rgba(255, 255, 255, 0.85);
+}
+
+/* Footer */
+.page footer {
+	margin:var(--spacing-xl) 0;
+	padding-top:var(--spacing-m);
+	border-top:1px solid var(--card-border);
+	font-size:0.8125rem;
+	color:var(--text-muted);
+}
+
+@media (prefers-reduced-motion:reduce) {
+	.link-card,
+	.link-card__arrow {
+		transition:none;
+	}
+	.link-card:hover,
+	.link-card:hover .link-card__arrow {
+		transform:none;
+	}
+}
+
+@media (max-width:34.375rem) {
+	.page {
+		padding-top:var(--spacing-l);
+	}
+	h1 {
+		font-size:2rem;
+	}
+}
