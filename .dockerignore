@@ -10,7 +10,6 @@
 
 # Deploy configs (not part of the site)
 docker
-.do
 wrangler.toml
 .assetsignore
 .dockerignore
@@ -18,7 +17,6 @@ wrangler.toml
 # Documentation
 README.md
 LICENSE.md
-VERSION.md
 
 # Logs
 *.log
