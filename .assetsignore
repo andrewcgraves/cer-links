@@ -6,13 +6,11 @@
 .gitignore
 .pre-commit-config.yaml
 docker
-.do
 wrangler.toml
 .dockerignore
 .assetsignore
 README.md
 LICENSE.md
-VERSION.md
 .idea
 .vscode
 .devcontainer
