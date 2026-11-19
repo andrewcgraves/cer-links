@@ -1,0 +1,215 @@
+/*
+* Save Metrolink theme
+* Layered on top of LittleLink's style.css. Neutral greys with a single
+* blue accent taken from the Californians for Electric Rail palette.
+*/
+
+/* Fonts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+@font-face {
+	font-display:swap;
+	font-family:'Inter';
+	font-style:normal;
+	font-weight:900;
+	src:url('../fonts/inter-latin-900-normal.woff2') format('woff2');
+}
+
+/* Tokens
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+:root {
+	--bg:#F7F7F5;
+	--surface:#FFFFFF;
+	--surface-hover:#F1F4F8;
+	--border:#E2E2DE;
+	--text:#1C1C1C;
+	--text-muted:#6B6B68;
+	--accent:#2C5F8F;
+	--accent-hover:#1B4162;
+	--on-accent:#FFFFFF;
+	--font-display:'Inter', system-ui, sans-serif;
+}
+
+/* Dark palette, shared by forced-dark and auto-dark */
+:root.theme-dark {
+	--bg:#141414;
+	--surface:#1C1C1C;
+	--surface-hover:#22272D;
+	--border:#2E2E2E;
+	--text:#EDEDED;
+	--text-muted:#A3A3A0;
+	--accent:#7DAEE3;
+	--accent-hover:#A3C6EC;
+	--on-accent:#0F1E2D;
+}
+@media (prefers-color-scheme:dark) {
+	:root.theme-auto {
+		--bg:#141414;
+		--surface:#1C1C1C;
+		--surface-hover:#22272D;
+		--border:#2E2E2E;
+		--text:#EDEDED;
+		--text-muted:#A3A3A0;
+		--accent:#7DAEE3;
+		--accent-hover:#A3C6EC;
+		--on-accent:#0F1E2D;
+	}
+}
+
+/* Base (overrides style.css, including its dark-mode body and link rules)
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+:root body,
+:root.theme-dark body,
+:root.theme-auto body {
+	background-color:var(--bg);
+	color:var(--text);
+}
+:root a:not(.link-card),
+:root.theme-dark a:not(.link-card),
+:root.theme-auto a:not(.link-card) {
+	color:var(--accent);
+	text-underline-offset:0.15em;
+}
+:root a:not(.link-card):hover,
+:root.theme-dark a:not(.link-card):hover,
+:root.theme-auto a:not(.link-card):hover {
+	color:var(--accent-hover);
+}
+:root :focus-visible,
+:root.theme-dark :focus-visible,
+:root.theme-auto :focus-visible {
+	outline:2px solid var(--accent);
+	outline-offset:2px;
+}
+
+h1, h2, h3 {
+	font-family:var(--font-display);
+	font-weight:900;
+}
+h1 {
+	font-size:2rem;
+	line-height:1.2;
+	letter-spacing:-0.01em;
+	hyphens:manual;
+}
+
+/* Link page layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+.page {
+	width:100%;
+	max-width:28rem;          /* 448px */
+	margin:0 auto;
+	padding:var(--spacing-xl) var(--spacing-s) 0;
+	box-sizing:border-box;
+	text-align:left;
+}
+
+.hero {
+	margin-bottom:var(--spacing-l);
+}
+.hero h1 {
+	margin:0 0 0.375rem;
+}
+.page .tagline {
+	margin:0;
+	font-size:1rem;
+	line-height:1.5;
+	color:var(--text-muted);
+}
+
+.link-section {
+	margin:0 0 var(--spacing-l);
+}
+.link-section h2 {
+	margin:0 0 0.625rem;
+	font-size:1rem;
+	line-height:1.4;
+	color:var(--text);
+}
+.link-list {
+	display:flex;
+	flex-direction:column;
+	gap:0.5rem;
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+.link-list li {
+	margin:0;
+}
+
+/* Link buttons */
+.link-card {
+	display:flex;
+	align-items:center;
+	gap:0.75rem;
+	padding:0.8125rem 1rem;
+	background:var(--surface);
+	border:1px solid var(--border);
+	border-radius:0.5rem;
+	text-decoration:none;
+	transition:background-color 0.12s ease, border-color 0.12s ease;
+	--card-text:var(--text);
+	--card-icon:var(--accent);
+}
+/* Beat style.css's `:root.theme-* a:not(.button)` link colors */
+:root a.link-card,
+:root a.link-card:hover,
+:root.theme-dark a.link-card,
+:root.theme-dark a.link-card:hover,
+:root.theme-auto a.link-card,
+:root.theme-auto a.link-card:hover {
+	color:var(--card-text);
+}
+.link-card:hover {
+	background:var(--surface-hover);
+	border-color:var(--accent);
+}
+.link-card__icon {
+	display:flex;
+	flex-shrink:0;
+	color:var(--card-icon);
+}
+.link-card__icon svg {
+	width:1.125rem;
+	height:1.125rem;
+}
+.link-card__body {
+	display:flex;
+	flex-direction:column;
+	min-width:0;
+}
+.link-card__title {
+	font-size:1rem;
+	font-weight:600;
+	line-height:1.35;
+}
+.link-card__meta {
+	margin-top:0.125rem;
+	font-size:0.8125rem;
+	line-height:1.4;
+	color:var(--text-muted);
+}
+
+/* Primary call to action */
+.link-card--primary {
+	background:var(--accent);
+	border-color:var(--accent);
+	--card-text:var(--on-accent);
+	--card-icon:var(--on-accent);
+}
+.link-card--primary:hover {
+	background:var(--accent-hover);
+	border-color:var(--accent-hover);
+}
+
+.page footer {
+	margin:var(--spacing-xl) 0;
+	font-size:0.8125rem;
+	color:var(--text-muted);
+}
+
+@media (prefers-reduced-motion:reduce) {
+	.link-card {
+		transition:none;
+	}
+}
