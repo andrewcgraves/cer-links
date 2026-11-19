@@ -127,7 +127,7 @@ You can customize the content in production by mounting a local directory:
 ```bash
 # Prepare a directory with your custom content
 mkdir -p /path/on/server/custom-content
-cp -r index.html privacy.html css/ fonts/ images/ /path/on/server/custom-content/
+cp -r index.html css/ fonts/ images/ /path/on/server/custom-content/
 
 # Run with the custom content mounted
 docker run -d --name littlelink -p 80:80 \
