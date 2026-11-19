@@ -213,3 +213,16 @@ h1 {
 		transition:none;
 	}
 }
+
+/* Update notice in the hero */
+.page .update {
+	margin:var(--spacing-s) 0 0;
+	padding:0.75rem 1rem;
+	font-size:0.9375rem;
+	line-height:1.5;
+	color:var(--text);
+	background:var(--surface);
+	border:1px solid var(--border);
+	border-left:3px solid var(--accent);
+	border-radius:0.5rem;
+}
